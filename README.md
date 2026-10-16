@@ -26,4 +26,5 @@ Dimensiones
 
 ## Practicas:
 -Practica01-Led
+-SIMULACION WOKWI: https://wokwi.com/projects/478056975164517377
 
