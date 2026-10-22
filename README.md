@@ -14,18 +14,20 @@ Prácticas de la materia de Microcontroladores con ESP32.
 
 ## Datos clave del ESP32
 
-Fuente: Datasheet oficial de Espressif, *ESP32 Series Datasheet* (Versión 5.3).
+Fuente: Espressif Systems, *ESP32-WROOM-32E & ESP32-WROOM-32UE Datasheet* (Versión 2.1).
 
-1. **Núcleo:** Xtensa LX6 de 32 bits, doble núcleo (la variante ESP32-S0WD es de un solo núcleo).
-2. **Frecuencia:** hasta 240 MHz.
+1. **Núcleo:** Xtensa LX6 de 32 bits, doble núcleo.
+2. **Frecuencia:** ajustable de 80 MHz a 240 MHz.
 3. **Memoria SRAM:** 520 KB (más 16 KB de SRAM en el RTC).
-4. **Memoria FLASH:** el chip usa flash externa por QSPI (hasta 16 MB). El módulo ESP32-WROOM-32 trae 4 MB.
+4. **Memoria FLASH:** 4, 8 o 16 MB de SPI flash dentro del módulo, según la versión.
 5. **Memoria ROM:** 448 KB.
-6. **WiFi:** 802.11 b/g/n en 2.4 GHz, hasta 150 Mbps.
-7. **Bluetooth:** v4.2 BR/EDR y Bluetooth LE (baja energía).
-8. **Voltaje:** 3.3 V típico (rango de 2.3 V a 3.6 V; mínimo 3.0 V si el chip trae flash o PSRAM interna).
-9. **Temperatura:** de –40 °C a 125 °C (temperatura de operación).
-10. **Dimensiones:** encapsulado QFN48 de 5 × 5 mm (algunas variantes 6 × 6 mm).
+6. **WiFi:** 802.11 b/g/n en 2.4 GHz (2412 – 2484 MHz), hasta 150 Mbps.
+7. **Bluetooth:** v4.2 BR/EDR y Bluetooth LE.
+8. **Voltaje:** 3.0 V a 3.6 V (típico 3.3 V); la fuente debe entregar al menos 0.5 A.
+9. **Temperatura:** de –40 °C a 85 °C (versión estándar) o hasta 105 °C (versión H).
+10. **Dimensiones:** módulo de 18.0 × 25.5 × 3.1 mm, con antena PCB integrada.
+11. **Procesador:** ESP32-D0WD-V3 (revisión v3.1), identificado con esptool al cargar el programa; cristal de 40 MHz.
+12. **Placa:** ESP32 DevKit de 38 pines con USB-C, convertidor USB-serial CP2102, botones BOOT y RST, y módulo genérico marcado "ESP-32", equivalente al ESP32-WROOM-32E (hasta 26 GPIO, 5 de ellos strapping pins).
 
 Otros datos que me llamaron la atención:
 
