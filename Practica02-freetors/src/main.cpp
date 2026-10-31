@@ -6,6 +6,7 @@ const int LED2 = 4;  // LED amarillo en G4
 void tareaLed1(void *pv) {
   pinMode(LED1, OUTPUT);
   bool estado = false;
+  Serial.printf("Led1 en el nucleo %d\n", xPortGetCoreID());
 
   for (;;) {
     estado = !estado;
@@ -17,6 +18,7 @@ void tareaLed1(void *pv) {
 void tareaLed2(void *pv) {
   pinMode(LED2, OUTPUT);
   bool estado = false;
+  Serial.printf("Led2 en el nucleo %d\n", xPortGetCoreID());
 
   for (;;) {
     estado = !estado;
@@ -26,8 +28,10 @@ void tareaLed2(void *pv) {
 }
 
 void setup() {
-  xTaskCreate(tareaLed1, "Led1", 2048, NULL, 1, NULL);
-  xTaskCreate(tareaLed2, "Led2", 2048, NULL, 1, NULL);
+  Serial.begin(115200);
+
+  xTaskCreatePinnedToCore(tareaLed1, "Led1", 2048, NULL, 1, NULL, 0);
+  xTaskCreatePinnedToCore(tareaLed2, "Led2", 2048, NULL, 1, NULL, 1);
 }
 
 void loop() {
