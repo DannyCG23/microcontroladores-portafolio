@@ -12,7 +12,7 @@ void tareaLed1(void *pv) {
   for (;;) {
     estado = !estado;
     digitalWrite(LED1, estado);
-    delay(500);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
 
