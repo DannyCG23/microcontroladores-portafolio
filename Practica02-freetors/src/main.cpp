@@ -31,10 +31,7 @@ void productor(void *pv) {
   int contador = 0;
 
   for (;;) {
-    Serial.printf("Enviando %d\n", contador);
     xQueueSend(cola, &contador, portMAX_DELAY);
-    Serial.printf("Enviado %d\n", contador);
-
     contador++;
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
@@ -59,8 +56,8 @@ void setup() {
   xTaskCreatePinnedToCore(tareaLed1, "Led1", 2048, NULL, 1, NULL, 0);
   xTaskCreatePinnedToCore(tareaLed2, "Led2", 2048, NULL, 1, NULL, 1);
 
-  xTaskCreatePinnedToCore(productor, "Prod", 2048, NULL, 1, NULL, 1);
-xTaskCreatePinnedToCore(consumidor, "Cons", 2048, NULL, 3, NULL, 1);
+  xTaskCreate(productor, "Prod", 2048, NULL, 1, NULL);
+  xTaskCreate(consumidor, "Cons", 256, NULL, 1, NULL);
 }
 
 void loop() {
