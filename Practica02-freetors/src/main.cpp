@@ -12,7 +12,7 @@ void tareaLed1(void *pv) {
   for (;;) {
     estado = !estado;
     digitalWrite(LED1, estado);
-    vTaskDelay(500 / portTICK_PERIOD_MS);
+    delay(500);
   }
 }
 
@@ -57,7 +57,7 @@ void setup() {
   xTaskCreatePinnedToCore(tareaLed2, "Led2", 2048, NULL, 1, NULL, 1);
 
   xTaskCreate(productor, "Prod", 2048, NULL, 1, NULL);
-  xTaskCreate(consumidor, "Cons", 256, NULL, 1, NULL);
+  xTaskCreate(consumidor, "Cons", 2048, NULL, 1, NULL);
 }
 
 void loop() {
